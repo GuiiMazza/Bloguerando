@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bloguerando</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <li style="float:right"><a class="active" href="#about">Entrar</a></li>
+      <li style="float:right"><a class="active" href="#about">Cadastre-se</a></li>
+    </ul>
+    <%= yield %>
+  </body>
+</html>
