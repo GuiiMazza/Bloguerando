@@ -11,9 +11,16 @@
   <body>
     <ul>
       <li><%= link_to 'Home', root_path %></li>
-      <li style="float:right"><a class="active" href="#about">Entrar</a></li>
-      <li style="float:right"><a class="active" href="#about">Cadastre-se</a></li>
+      <li style="float:right"><%= link_to 'Sair',  destroy_user_session_path  %></li>
+      <li style="float:right"><%= link_to 'Cadastrar-se', new_user_registration_path %></li>
+      <li style="float:right"><%= link_to 'Entrar',  new_user_session_path  %></li>
     </ul>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
