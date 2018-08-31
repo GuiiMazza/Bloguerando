@@ -14,10 +14,12 @@
       </tr>
       <tr>
         <td><%= link_to 'Mostrar', article_path(article) %></td>
-        <td><%= link_to 'editar', edit_article_path(article) %></td>
-        <td><%= link_to 'Deletar', article_path(article),
-        method: :delete,
-        data: { confirm: 'Tem Certeza que deseja deletar ?' } %></td>
+        <% if current_user == article.user %>
+          <td><%= link_to 'editar', edit_article_path(article) %></td>
+          <td><%= link_to 'Deletar', article_path(article),
+            method: :delete,
+              data: { confirm: 'Tem Certeza que deseja deletar ?' } %></td>
+        <% end %>
       </tr>
     <% end %>
 

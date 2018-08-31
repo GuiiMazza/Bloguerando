@@ -9,7 +9,9 @@
 </p>
 
 <p>
-  <%= link_to 'Apagar Comentario', [comment.article, comment],
-  method: :delete,
-  data: { confirm: 'Apagar o comentario ?' } %>
+  <% if current_user.id == comment.user_id %>
+    <%= link_to 'Apagar Comentario', article_comment_path(@article, comment),
+    method: :delete,
+    data: { confirm: 'Apagar o comentario ?' } %>
+  <% end %>
 </p>
