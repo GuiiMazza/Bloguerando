@@ -1,11 +1,20 @@
 class CommentsController < ApplicationController
-
   before_action :authenticate_user!, only: [:create, :edit, :destroy]
+
+  def new
+    @comment = Comment.new
+  end
 
   def create
     @article = Article.find(params[:article_id])
+    @comment = Comment.new
     @comment = @article.comments.create(comment_params.merge(user: current_user))
-    redirect_to article_path(@article)
+
+     if @comment.save
+      redirect_to article_path(@article)
+    else
+      render "comments/new"
+    end
   end
 
   def destroy
@@ -16,6 +25,22 @@ class CommentsController < ApplicationController
       redirect_to article_path(@article)
     else
       redirect_to article_path(@article)
+    end
+  end
+
+  def edit
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+
+     if @comment.update(comment_params)
+      redirect_to @article
+    else
+      redirect_to 'edit'
     end
   end
 

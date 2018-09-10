@@ -1,4 +1,3 @@
-<br><br><br><br><br><br>
     <div class="container">
       <h2>Novo Artigo</h2>
       <%= form_for @article, local: true do |form| %>
@@ -10,21 +9,19 @@
                   <li><%= msg %></li>
                 <% end %>
               </h2>
-              <ul>
-              </ul>
             </div>
         <% end %>
             <p>
-              <%= form.label :title %><br>
-              <%= form.text_field :title %>
+              <%= form.label :title, 'Titulo' %><br>
+              <%= form.text_field :title, size: "50x10" %>
             </p>
 
             <p>
-              <%= form.label :text %><br>
-              <%= form.text_area :text %>
+              <%= form.label :text, 'Texto' %><br>
+              <%= form.text_area :text, size: "50x10" %>
             </p>
             <p>
-              <%= form.submit %>
+              <%= form.submit "Criar Artigo", class:"btn btn-outline-dark" %>
             </p>
       <% end %>
     </div>

@@ -1,13 +1,27 @@
-<%= form_for [ @article, @article.comments.build ], local: true do |form|%>
+<div class="container">
+  <%= form_for [ @article, @comment ], local: true do |form|%>
+      <% if @comment.errors.any? %>
+        <div id="error_explanation">
+         <h2>
+           <%= pluralize(@comment.errors.count, "Erros") %>, Este artigo não pode ser salvo pois existem erros !!!
+             <% @comment.errors.full_messages.each do |msg| %>
+             <li><%= msg %></li>
+            <% end %>
+          </h2>
+        </div>
+      <% end %>
         <p>
-         <%= form.label :commenter %><br>
-         <%= form.text_field :commenter %>
+         <%= form.label :commenter, 'Usuario' %><br>
+         <%= form.text_field :commenter, size: "50x10" %>
         </p>
         <p>
-         <%= form.label :body %><br>
-         <%= form.text_area :body %>
+         <%= form.label :body, 'Comentário' %><br>
+         <%= form.text_area :body, size: "50x10" %>
         </p>
-        <p>
-         <%= form.submit %>
-        </p>
-    <% end %>
+      <div class="row">
+        <div class="col s12">
+           <%= form.submit "Adicionar Comentario", class:"btn btn-outline-dark" %>
+        </div>
+      </div>
+  <% end %>
+</div>
