@@ -3,23 +3,20 @@ class ArticlesController < ApplicationController
  #before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def create
-    @article = Article.new(article_params.merge(user: current_user))
-
-    if @article.save
+    if @article = current_user.articles.create(article_params)
        redirect_to @article
-
-      else
+    else
       render 'new'
     end
   end
 
   def show
-      @article = Article.find(params[:id])
-      @comment = Comment.new
+    @article = Article.find(params[:id])
+    @comment = @article.comments.new
   end
 
   def index
@@ -28,11 +25,14 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-      if @article.update(article_params)
-        redirect_to @article
-        else
-        render 'edit'
-      end
+    redirect_to @artcile, alert: 'Não foi possivel atualizar!!' && return unless @article.user == current_user
+
+    if @article.update(article_params)
+      redirect_to @article, notice: 'Foi atualizado'
+    else
+      flash[:alert] ='não foi possivel atualizar!!'
+      render 'edit'
+    end
   end
 
   def destroy

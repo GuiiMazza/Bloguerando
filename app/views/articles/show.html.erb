@@ -1,26 +1,25 @@
 <div class="container">
-  <div class="row">
-    <div class="col s6">
-      <p>
-        <strong>Titulo:</strong>
-          <%= @article.title %>
-      </p>
-    </div>
-    <div class="col s6">
-      <p>
-        <strong>Texto:</strong>
-          <%= @article.text %>
-      </p>
-    </div>
-    <div>
-        <h2>Comentários:</h2>
-          <%= render @article.comments %>
-        <h2>-Adicionar um comentario-</h2>
-          <%= render 'comments/form' %>
-          <%= link_to 'Voltar', articles_path %>
-          <%= link_to 'editar', edit_article_path(@article) %>
-    </div>
-  </div>
+<p>
+<strong>Titulo:</strong>
+<%= @article.title %>
+</p>
+</div>
+
+<p>
+<strong>Texto:</strong>
+<%= @article.text %>
+</p>
+
+
+<h2>Comentários:</h2>
+<%= render @article.comments %>
+
+
+<h2>-Adicionar um comentario-</h2>
+<%= render 'comments/form' %>
+
+<%= link_to 'Voltar', articles_path %>
+<%= link_to 'editar', edit_article_path(@article, @comment) %>
 </div>
 
 
