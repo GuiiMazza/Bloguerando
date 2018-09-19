@@ -1,19 +1,23 @@
-<p>
-  <strong>Usuario:</strong>
-  <%= comment.commenter %>
-</p>
-<p>
-  <strong>Comentario:</strong>
-  <%= comment.body %>
-</p>
-  <div class="row">
+<div class="row">
+  <div class="col-12">
+    <p>
+      <strong>Usuario:</strong>
+      <%= comment.commenter %>
+    </p>
+    <p>
+      <strong>Comentario:</strong>
+      <%= comment.body %>
+    </p>
     <% if !comment.new_record? %>
-      <div class="col s4">
-        <%= link_to 'editar', edit_article_comment_path(@article, comment) %>
-      </div>
-      <div class="col s4">
-        <%= link_to 'Apagar Comentario', article_comment_path(@article, comment),
-            method: :delete, data: { confirm: 'Apagar o comentario ?' } %>
+      <div class="row mb-4">
+        <div class="col-4">
+          <%= link_to 'editar', edit_article_comment_path(@article, comment) %>
+        </div>
+        <div class="col-4">
+          <%= link_to 'Apagar Comentario', article_comment_path(@article, comment),
+              method: :delete, data: { confirm: 'Apagar o comentario ?' } %>
+        </div>
       </div>
     <% end %>
+  </div>
 </div>
