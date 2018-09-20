@@ -1,38 +1,36 @@
-
-      <h2>Novo Artigo</h2>
-        <%= form_for @article, local: true do |form| %>
-          <% if @article.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@article.errors.count, "Erros") %>, Este artigo não pode ser salvo pois existem erros !!!</h2>
-              <ul>
-                <% @article.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
+<h2>Novo Artigo</h2>
+  <%= form_for @article, local: true do |form| %>
+    <% if @article.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@article.errors.count, "Erros") %>, Este artigo não pode ser salvo pois existem erros !!!</h2>
+        <ul>
+          <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
           <% end %>
-          <div class="row">
-            <div class="col-12">
-            <p>
-              <%= form.label :title, 'Titulo' %><br>
-              <%= form.text_field :title %>
-            </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <p>
-                <%= form.label :text, 'Texto' %><br>
-                <%= form.text_area :text %>
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <p>
-                <%= form.submit "Criar Artigo", class:"btn btn-outline-dark" %>
-              </p>
-            </div>
-          </div>
-      <% end %>
-
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group row">
+      <div class="col-12">
+      <p>
+        <%= form.label :title, 'Titulo' %><br>
+        <%= form.text_field :title, size: "50x10" %>
+      </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <p>
+          <%= form.label :text, 'Texto' %><br>
+          <%= form.text_area :text, size: "50x10" %>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <p>
+          <%= form.submit "Criar Artigo", class:"btn btn-success" %>
+        </p>
+      </div>
+    </div>
+<% end %>

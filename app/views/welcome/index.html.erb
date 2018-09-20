@@ -3,15 +3,18 @@
         <div class="bemvindo mt-4">
             <h1 class="text-bold">Bem Vindos ao Bloguerando!!!</h1>
         </div>
-            <div>
-             <h3>Um pouco sobre nós...</h3>
-            </div>
+        <div>
+            <h3>Um pouco sobre nós...</h3>
+        </div>
         <div>
             <p>O blog blorguerando é um projeto voltado a área de tecnologia com o intuito de ajudar o jovem programador
-            a interar-se de toda dinamica das Estruturas MVC, linguagem de programação e o uso de um framework chamado Rails...</p>
-             <p>Aqui neste blog será possivel entender todas as formas de como começar a vida de programador, com dicas, novidades, e um forum onde os usuarios interagem, ajudando a melhorar o acervo e conhecimento dos membros.</p>
+                a interar-se de toda dinamica das Estruturas MVC, linguagem de programação e o uso de um framework chamado Rails...</p>
+            <p>Aqui neste blog será possivel entender todas as formas de como começar a vida de programador, com dicas, novidades, e um forum onde os usuarios interagem, ajudando a melhorar o acervo e conhecimento dos membros.</p>
         </div>
-
-        <%= link_to 'Acessar Lista de Artigos', controller: 'articles' %>
+        <div class="row mt-4">
+            <div class="col-2">
+                <%= link_to 'Acessar Lista de Artigos', articles_path, class:"btn btn-outline-dark" %>
+            </div>
+        </div>
     </div>
 </div>

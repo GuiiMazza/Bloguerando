@@ -48,11 +48,6 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
   end
 
-  #def correct_user
-    #@article = Article.find(params[:id])
-    #redirect_to articles_path unless current_user?(@article.user)
-  #end
-
   private
   def article_params
     params.require(:article).permit(:title, :text)

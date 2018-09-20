@@ -1,3 +1,6 @@
-
-  <%= render 'form' %><br><br>
-  <%= link_to 'Voltar', articles_path(@article) %>
+<div class="row mt-4">
+  <div class="col-4">
+    <%= render 'form' %>
+    <%= link_to 'Voltar', articles_path(@article), class:"btn btn-warning btn-sm" %>
+  </div>
+</div>

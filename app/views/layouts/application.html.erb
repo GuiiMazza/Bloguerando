@@ -29,8 +29,8 @@
               </li>
           <% end %>
             <% if user_signed_in? %>
-              <li class="nav-item" style="float: right">
-                <%= current_user.email  %>
+              <li class="nav-item nome_user">
+                <%= current_user.email %>
               </li>
               <li class="nav-item" style="float: right">
               <%= link_to 'Sair',  destroy_user_session_path, class: 'nav-link'  %>

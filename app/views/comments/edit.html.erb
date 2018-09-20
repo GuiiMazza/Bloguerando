@@ -1,14 +1,17 @@
-
- <%= form_for [ @article, @comment ], local: true do |form|%>
-    <p>
-        <%= form.label :commenter, "Usuario" %><br>
-        <%= form.text_field :commenter, size: "50x10" %>
-    </p>
-    <p>
-        <%= form.label :body, "Comentario" %><br>
-        <%= form.text_area :body, size: "50x10" %>
-    </p>
-    <p>
-        <%= form.submit "Editar Comentario", class:"btn btn-outline-dark" %>
-    </p>
- <% end %>
+<div class="row mt-4">
+    <div class="col-12">
+        <%= form_for [ @article, @comment ], local: true do |form|%>
+            <!-- <p>
+                <%= form.label :commenter, "Usuario" %><br>
+                <%= form.text_field :commenter, size: "50x10" %>
+            </p> -->
+            <p>
+                <%= form.label :body, "Comentario" %><br>
+                <%= form.text_area :body, size: "50x10" %>
+            </p>
+            <p>
+                <%= form.submit "Editar Comentario", class:"btn btn-outline-dark" %>
+            </p>
+            <% end %>
+    </div>
+</div>
