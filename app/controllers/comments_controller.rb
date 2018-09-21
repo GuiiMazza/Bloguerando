@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @comment = @article.comments.new(comment_params.merge(user: current_user))
 
      if @comment.save
@@ -28,12 +28,12 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
 
      if @comment.update(comment_params)

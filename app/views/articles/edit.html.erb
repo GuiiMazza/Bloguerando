@@ -1,6 +1,8 @@
-<div class="row mt-4">
-  <div class="col-4">
+<div class="form-group">
+  <div class="col-12">
     <%= render 'form' %>
-    <%= link_to 'Voltar', articles_path(@article), class:"btn btn-warning btn-sm" %>
+    <div class="col-6">
+      <%= link_to 'Voltar', articles_path(@article), class:"btn btn-warning btn-sm form-control" %>
+    </div>
   </div>
 </div>

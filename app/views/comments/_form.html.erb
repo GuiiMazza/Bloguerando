@@ -10,25 +10,17 @@
           </h2>
         </div>
       <% end %>
-      <!-- <div class="row">
-        <div class="col-12">
-          <p>
-           <%= form.label :commenter, 'Usuario' %><br>
-           <%= form.text_field :commenter %>
-          </p>
-        </div>
-      </div> -->
-      <div class="row">
+      <div class="form-group">
         <div class="col-6">
           <p>
            <%= form.label :body, 'Comentário' %><br>
-           <%= form.text_area :body, size: "50x10" %>
+           <%= form.text_area :body, size: "50x10", class:"form-control" %>
           </p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-           <%= form.submit "Adicionar Comentario", class:"btn btn-outline-dark" %>
+      <div class="form-group">
+        <div class="col-6">
+           <%= form.submit "Adicionar Comentario", class:"btn btn-outline-dark form-control" %>
         </div>
       </div>
   <% end %>

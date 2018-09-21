@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def index
@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     redirect_to @artcile, alert: 'Não foi possivel atualizar!!' && return unless @article.user == current_user
 
     if @article.update(article_params)
@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
   end
 
   private

@@ -10,26 +10,22 @@
         </ul>
       </div>
     <% end %>
-    <div class="form-group row">
-      <div class="col-12">
-      <p>
+      <div class="form-group">
+        <div class="col-6">
         <%= form.label :title, 'Titulo' %><br>
-        <%= form.text_field :title, size: "50x10" %>
-      </p>
+        <%= form.text_field :title, class:"form-control" %>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <p>
+    <div class="form-group">
+      <div class="col-6">
           <%= form.label :text, 'Texto' %><br>
-          <%= form.text_area :text, size: "50x10" %>
-        </p>
+          <%= form.text_area :text, size: "50x10", class:"form-control" %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-4">
+    <div class="form-group">
+      <div class="col-6">
         <p>
-          <%= form.submit "Criar Artigo", class:"btn btn-success" %>
+          <%= form.submit "Criar Artigo", class:"btn btn-success form-control" %>
         </p>
       </div>
     </div>
