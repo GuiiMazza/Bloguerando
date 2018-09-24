@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
     if current_user.id == @comment.user_id
       @comment.destroy
